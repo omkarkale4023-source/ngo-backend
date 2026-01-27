@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import contact_api, donation_api, login_api
+from .views import ContactView, DonationView, LoginActivityView
 
 urlpatterns = [
-    path("contact/", contact_api),
-    path("donate/", donation_api),
-    path("login/", login_api),
+    path("contact/", ContactView.as_view()),
+    path("donate/", DonationView.as_view()),
+    path("login/", LoginActivityView.as_view()),
 ]
