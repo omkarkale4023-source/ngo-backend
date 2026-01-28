@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Contact, Donation, LoginActivity
 
+
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
@@ -13,7 +14,7 @@ class DonationSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class LoginSerializer(serializers.ModelSerializer):
+class LoginActivitySerializer(serializers.ModelSerializer):
     class Meta:
         model = LoginActivity
         fields = "__all__"
