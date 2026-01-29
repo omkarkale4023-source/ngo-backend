@@ -10,7 +10,6 @@ from .serializers import (
 )
 
 
-
 @api_view(["POST"])
 def contact_view(request):
     serializer = ContactSerializer(data=request.data)
