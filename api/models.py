@@ -1,10 +1,9 @@
 from django.db import models
 
-
 class Contact(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
-    subject = models.CharField(max_length=150)
+    subject = models.CharField(max_length=200)
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -13,30 +12,11 @@ class Contact(models.Model):
 
 
 class Donation(models.Model):
-    PURPOSE_CHOICES = [
-        ("Education", "Education"),
-        ("Healthcare", "Healthcare"),
-        ("Women Empowerment", "Women Empowerment"),
-        ("General", "General"),
-    ]
-
-    DONATION_TYPE_CHOICES = [
-        ("One Time", "One Time"),
-        ("Monthly", "Monthly"),
-    ]
-
-    PAYMENT_MODE_CHOICES = [
-        ("UPI", "UPI"),
-        ("Card", "Card"),
-        ("Net Banking", "Net Banking"),
-    ]
-
     name = models.CharField(max_length=100)
     email = models.EmailField()
-    amount = models.PositiveIntegerField()
-    purpose = models.CharField(max_length=50, choices=PURPOSE_CHOICES, default="General")
-    donation_type = models.CharField(max_length=50, choices=DONATION_TYPE_CHOICES, default="One Time")
-    payment_mode = models.CharField(max_length=50, choices=PAYMENT_MODE_CHOICES, default="UPI")
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    purpose = models.CharField(max_length=100)
+    payment_mode = models.CharField(max_length=50)
     anonymous = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
